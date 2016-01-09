@@ -1,0 +1,23 @@
+dev:
+  php:
+    executable: C:\dev\php\5614\php.exe
+  js:
+    dir: ./web/src/js
+  typescript:
+    enabled: false
+    dir: ./web/src/ts/**/*.ts
+    output: ./web/src/js
+    basePath: ./web/src/ts
+  css:
+    dir: ./web/src/css
+  less:
+    enabled: true
+    dir: ./web/src/less
+    output: ./web/src/css
+  sass:
+    enabled: true
+    dir: ./web/src/sass
+    output: ./web/src/css
+  server:
+    enabled: true
+    host: 127.0.0.1:{{port}}
