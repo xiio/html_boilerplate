@@ -1,17 +1,16 @@
-1. Inicjalizacja projektu
-===========================
-Otwórz terminal w katalogu głównym projektu i wykonaj polecenie
-
-`npm install & grunt init`
-
-2. Konfiguracja
+1. Konfiguracja
 ===========================
 Pliki:
 	* ./config/grunt.yaml - konfiguracja grunt
 	
 W pierwszej kolejności ustaw ścieżkę do interpretera php w pliku ./config/grunt.yaml
 
-	
+2. Inicjalizacja projektu
+===========================
+Otwórz terminal w katalogu głównym projektu i wykonaj polecenie
+
+`npm install & grunt init`
+
 1. Web
 -------------------------
 Aby przystąpić do pracy należy uruchomić w terminalu komendę
