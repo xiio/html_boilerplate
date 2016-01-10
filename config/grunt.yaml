@@ -17,6 +17,10 @@ dev:
     enabled: true
     dir: ./web/src/sass
     output: ./web/src/css
+  livereload:
+    enabled: true
+    port: {{livereload_port}}
+    livereload_file: ./web/index.html #file where <script> for livereload is located
   server:
     enabled: true
-    host: 127.0.0.1:11509
+    host: 127.0.0.1:{{server_port}}

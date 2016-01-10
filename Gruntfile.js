@@ -1,21 +1,18 @@
 module.exports = function (grunt) {
 
+	//TODO Add config "enable" feature
+	//TODO Clear Gruntfile.js "costs"
+	//TODO Add host (localhost) name to grunt
+	//TODO Add build feature
+
 	var config_file_path = './config/grunt.yaml';
+
 	var config = grunt.file.readYAML(config_file_path);
 	var consts = {};
 	consts.tmp_dir = './web/src/_tmp';
 	consts.tmp_dir_js = consts.tmp_dir + '/js';
 	consts.tmp_dir_css = consts.tmp_dir + '/css';
 	consts.version_file = "version.php";
-
-	consts.livereload_port = Math.floor(Math.random() * 8000) + 7000;
-
-	var getServerUrl = function (env) {
-		var config = grunt.file.read(config_file_path);
-		var re = /base_url:([\s\S]*?[\n])/g;
-		var url = re.exec(config)[1];
-		return url.replace('http://', '').trim();
-	};
 
 	// Project configuration.
 	grunt.initConfig({
@@ -170,27 +167,27 @@ module.exports = function (grunt) {
 					files: [config.dev.less.dir + "/**/*.less"],
 					tasks: ["less:dev"],
 					options: {
-						livereload: consts.livereload_port,
+						livereload: config.dev.livereload.port,
 					},
 				},
 				sass: {
 					files: [config.dev.sass.dir + "/**/*.sass", config.dev.sass.dir + "/**/*.scss"],
 					tasks: ["sass:dev"],
 					options: {
-						livereload: consts.livereload_port,
+						livereload: config.dev.livereload.port,
 					},
 				},
 				ts: {
 					files: [config.dev.typescript.dir + "/**/*.ts"],
 					tasks: ["typescript:dev"],
 					options: {
-						livereload: consts.livereload_port,
+						livereload: config.dev.livereload.port,
 					},
 				},
 				html: {
 					files: ["./web/src/**/*.html"],
 					options: {
-						livereload: consts.livereload_port,
+						livereload: config.dev.livereload.port,
 					},
 				},
 			}
@@ -203,8 +200,16 @@ module.exports = function (grunt) {
 	grunt.registerTask('setup:config', 'Setup configuration.', function () {
 		var config_file = config_file_path;
 		var config_content = grunt.file.read(config_file);
-		config_content = config_content.replace('{{port}}', Math.floor(Math.random() * 7000) + 6000);
+		var livereload_port = Math.floor(Math.random() * 7000) + 6000;
+		var server_port = Math.floor(Math.random() * 7000) + 6000;
+		config_content = config_content.replace('{{server_port}}', server_port);
+		config_content = config_content.replace('{{livereload_port}}', livereload_port);
 		grunt.file.write(config_file, config_content);
+
+		var html_file = config.dev.livereload.livereload_file;
+		var html_content = grunt.file.read(html_file);
+		html_content = html_content.replace('{{livereload_port}}', livereload_port);
+		grunt.file.write(html_file, html_content);
 	});
 
 	grunt.registerTask('init', [
