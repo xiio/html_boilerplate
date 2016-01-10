@@ -22,8 +22,9 @@ Aby przystąpić do pracy należy uruchomić w terminalu komendę
 	* uruchomiona zostanie domyślna przeglądarka z adresem loklalnym projektu
 
 W katalogu `./web` znajdują się dwa podkatalogi
-	* dist - zawierający build aplikacji. Zawartość pojawia się automatycznie po `grunt build`
+
 	* src - katalog zawierający źródła treści dla przeglądarki. Tutaj pracujemy.
+	* dist - zawierający build aplikacji. Zawartość pojawia się automatycznie po `grunt build`
 	
 ### Dodawanie bibliotek zewnętrznych
 `bower install xxx --save`

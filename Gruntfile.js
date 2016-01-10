@@ -187,7 +187,7 @@ module.exports = function (grunt) {
 						livereload: consts.livereload_port,
 					},
 				},
-				twig: {
+				html: {
 					files: ["./web/src/**/*.html"],
 					options: {
 						livereload: consts.livereload_port,
@@ -209,7 +209,10 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('init', [
 		'shell:bower',
-		'setup:config'
+		'setup:config',
+		'less:dev',
+		'sass:dev',
+		'typescript:dev'
 	]);
 
 	grunt.registerTask('up', [
