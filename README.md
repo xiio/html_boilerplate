@@ -1,9 +1,22 @@
+0. Wymagania
+===========================
+* PHP >= 5.4
+* Node.js with npm
+* Bower
+* Grunt
+
+Downloads cheatsheet:
+	
+* PHP: [http://php.net/downloads.php](http://php.net/downloads.php)
+* Node.js: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+* Bower: `npm install bower -g`
+* Grunt: `npm install grunt -g`
+	
 1. Konfiguracja
 ===========================
-Pliki:
-	* ./config/grunt.yaml - konfiguracja grunt
-	
 W pierwszej kolejności ustaw ścieżkę do interpretera php w pliku ./config/grunt.yaml
+
+* ./config/grunt.yaml - konfiguracja grunt
 
 2. Inicjalizacja projektu
 ===========================
@@ -13,18 +26,16 @@ Otwórz terminal w katalogu głównym projektu i wykonaj polecenie
 
 1. Web
 -------------------------
-Aby przystąpić do pracy należy uruchomić w terminalu komendę
+Aby przystąpić do pracy należy uruchomić w terminalu komendę `grunt up`
 
-`grunt up`
-
-	* polecenie uruchomi nasłuchawnie zmian w plikach oraz ich kompilację (grunt watch)
-	* następnie uruchomiony zostanie serwer php
-	* uruchomiona zostanie domyślna przeglądarka z adresem loklalnym projektu
+1. polecenie uruchomi nasłuchawnie zmian w plikach oraz ich kompilację (grunt watch)
+2. następnie uruchomiony zostanie serwer php
+3. uruchomiona zostanie domyślna przeglądarka z adresem loklalnym projektu
 
 W katalogu `./web` znajdują się dwa podkatalogi
 
-	* src - katalog zawierający źródła treści dla przeglądarki. Tutaj pracujemy.
-	* dist - zawierający build aplikacji. Zawartość pojawia się automatycznie po `grunt build`
+* src - katalog zawierający źródła treści dla przeglądarki. Tutaj pracujemy.
+* dist - zawierający build aplikacji. Zawartość pojawia się automatycznie po `grunt build`
 	
 ### Dodawanie bibliotek zewnętrznych
 `bower install xxx --save`
