@@ -29,8 +29,8 @@ W katalogu `./web` znajdują się dwa podkatalogi
 `bower install xxx --save`
 zainstalowana biblioteka pojawi się w katalogu `./web/src/vendor/`
 
-### Dodawanie plików LESS/CSS
-Aby dodać plik `less` nalezy umieścić go w katalogu `./web/src/less`. Plik powinnien kompilować się automatycznie do katalogu `./web/src/css`
+### Dodawanie plików LESS/Sass
+Aby dodać plik `less/scss` nalezy umieścić go w katalogu `./web/src/less`|`./web/src/sass`. Plik powinnien kompilować się automatycznie do katalogu `./web/src/css`
 
 ### Dodawanie plików JS/TS
 TS - TypeScript(kompilowane automatycznie do katalogu `./web/src/js`

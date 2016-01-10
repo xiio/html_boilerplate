@@ -48,6 +48,9 @@ module.exports = function (grunt) {
 			 ****************************/
 			sass: {
 				dev: {
+					options: {
+						sourceMap: true
+					},
 					files: [{
 						expand: true,
 						cwd: config.dev.sass.dir,
@@ -63,14 +66,13 @@ module.exports = function (grunt) {
 			 ****************************/
 			typescript: {
 				dev: {
-					src: [config.dev.typescript.dir],
+					src: [config.dev.typescript.dir+"/**/*.ts"],
 					dest: config.dev.typescript.output,
 					options: {
 						module: 'amd', //or commonjs
 						target: 'es5', //or es3
-						basePath: config.dev.typescript.basePath,
 						sourceMap: true,
-						declaration: true,
+						declaration: false,
 						noResolve: true
 					}
 				}
@@ -171,14 +173,13 @@ module.exports = function (grunt) {
 						livereload: consts.livereload_port,
 					},
 				},
-				//soon
-				//sass: {
-				//	files: [config.dev.sass.dir + "/**/*.sass"],
-				//	tasks: ["sass:dev"],
-				//	options: {
-				//		livereload: consts.livereload_port,
-				//	},
-				//},
+				sass: {
+					files: [config.dev.sass.dir + "/**/*.sass", config.dev.sass.dir + "/**/*.scss"],
+					tasks: ["sass:dev"],
+					options: {
+						livereload: consts.livereload_port,
+					},
+				},
 				ts: {
 					files: [config.dev.typescript.dir + "/**/*.ts"],
 					tasks: ["typescript:dev"],
@@ -224,7 +225,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-shell");
 	grunt.loadNpmTasks("grunt-concurrent");
 	grunt.loadNpmTasks("grunt-contrib-livereload");
-	//soon //grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks("grunt-open");
 
 	grunt.registerTask('default', 'watch');

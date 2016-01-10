@@ -4,10 +4,9 @@ dev:
   js:
     dir: ./web/src/js
   typescript:
-    enabled: false
-    dir: ./web/src/ts/**/*.ts
+    enabled: true
+    dir: ./web/src/ts/
     output: ./web/src/js
-    basePath: ./web/src/ts
   css:
     dir: ./web/src/css
   less:
@@ -20,4 +19,4 @@ dev:
     output: ./web/src/css
   server:
     enabled: true
-    host: 127.0.0.1:{{port}}
+    host: 127.0.0.1:11509
