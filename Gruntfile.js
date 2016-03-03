@@ -1,10 +1,5 @@
 module.exports = function (grunt) {
 
-	//TODO Add config "enable" feature
-	//TODO Clear Gruntfile.js "costs"
-	//TODO Add host (localhost) name to grunt
-	//TODO Add build feature
-
 	var config_file_path = './config/grunt.yaml';
 
 	var config = grunt.file.readYAML(config_file_path);
@@ -12,6 +7,7 @@ module.exports = function (grunt) {
 	consts.tmp_dir = './web/src/_tmp';
 	consts.tmp_dir_js = consts.tmp_dir + '/js';
 	consts.tmp_dir_css = consts.tmp_dir + '/css';
+	consts.build_dist_path = config.dev.build.path+'/'+config.dev.build.dist_dir_name;
 	consts.version_file = "version.php";
 
 	// Project configuration.
@@ -84,7 +80,7 @@ module.exports = function (grunt) {
 						preserveComments: false
 					},
 					src: consts.tmp_dir_js + '/*.js',
-					dest: './web/dist/js/scripts.js'
+					dest: consts.build_dist_path+'/js/scripts.js'
 				}
 			},
 
@@ -108,7 +104,7 @@ module.exports = function (grunt) {
 			copy: {
 				prod: {
 					files: [
-						{expand: true, cwd: './web/src/', src: ['img/**'], dest: './web/dist/'},
+						{expand: true, cwd: './web/src/', src: ['img/**'], dest: consts.build_dist_path+'/'},
 						// makes all src relative to cwd
 						//{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
 						// flattens results to a single level

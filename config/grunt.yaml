@@ -24,3 +24,6 @@ dev:
   server:
     enabled: true
     host: 127.0.0.1:{{server_port}}
+  build:
+    path: ./public_html   #where files are published on build
+    dist_dir_name: dist   #compiled file path relative to build.path
